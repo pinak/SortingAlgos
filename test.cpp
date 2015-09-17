@@ -4,6 +4,7 @@
 #include "bubblesort.h"
 #include "insertionsort.h"
 #include "mergesort.h"
+#include "quicksort.h"
 
 class TestAlgorithms : public QObject
 {
@@ -24,6 +25,9 @@ private slots:
 
     void mergeSort();
     void mergeSort_data();
+
+    void quickSort();
+    void quickSort_data();
 };
 
 void TestAlgorithms::sortingTestData()
@@ -89,6 +93,20 @@ void TestAlgorithms::mergeSort()
     QFETCH(QVector<int>, sorted);
 
     Sort::mergeSort(unsorted);
+    QCOMPARE(unsorted, sorted);
+}
+
+void TestAlgorithms::quickSort_data()
+{
+    sortingTestData();
+}
+
+void TestAlgorithms::quickSort()
+{
+    QFETCH(QVector<int>, unsorted);
+    QFETCH(QVector<int>, sorted);
+
+    Sort::quickSort(unsorted.begin(), unsorted.end());
     QCOMPARE(unsorted, sorted);
 }
 

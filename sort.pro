@@ -26,4 +26,5 @@ HEADERS += \
     selectionsort.h \
     bubblesort.h \
     insertionsort.h \
-    mergesort.h
+    mergesort.h \
+    quicksort.h
